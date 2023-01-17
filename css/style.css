@@ -33,7 +33,7 @@ body {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-between;
     margin-top: 40px;
 }
 
@@ -47,10 +47,30 @@ body {
     justify-content: center;
     align-items: center;
     margin: 17px;
+    transform-style: preserve-3d;
 }
 
 .carta img {
     width: 100px;
+}
+
+.imagem-frente {
+    position: relative;
+    right: -50px;
+}
+
+.imagem-costa {
+    transform: rotateY(90deg);
+    position: relative;
+    left: -50px;
+}
+
+.carta:hover .imagem-costa {
+    transform: rotateY(0deg);
+}
+
+.carta:hover .imagem-frente {
+    transform: rotateY(90deg);
 }
 
 @media (max-width:990px) {
