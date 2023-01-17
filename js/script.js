@@ -64,6 +64,8 @@ for (let i = 0; i < quantidadeCartas; i++) {
 let cartaVirada1;
 let cartaVirada2;
 
+let numeroDeJogadas = 0;
+
 function virarCarta(cartaVirada) {
     const esconder = cartaVirada.querySelector(".back");
     const revelar = cartaVirada.querySelector(".face");
@@ -82,7 +84,10 @@ function virarCarta(cartaVirada) {
         cartaVirada2 = cartaVirada;
     }
 
-    setTimeout(compararCartas, 1000)
+    numeroDeJogadas++;
+    console.log(numeroDeJogadas);
+
+    setTimeout(compararCartas, 1000);
 }
 
 function compararCartas() {
@@ -105,6 +110,15 @@ function compararCartas() {
             cartaVirada1 = undefined;
             cartaVirada2 = undefined;
         }
+    }
+
+    setTimeout(verificarNumeroDeJogadas, 1000)
+}
+
+function verificarNumeroDeJogadas() {
+    const verificador = document.querySelectorAll('.mostrarFace');
+    if (verificador.length === Number(quantidadeCartas)) {
+        alert(`Você ganhou em ${numeroDeJogadas} jogadas!`)
     }
 }
 
